@@ -54,14 +54,14 @@ body::before {
     position: fixed; 
     top: 55%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Centrado */
+    transform: translate(-50%, -50%);
     width: 80%;
     height: 85%;
     background-image: url("./public/img/parchmentBack.png");
     background-position: center;
     background-size: cover;
-    z-index: -1; /* Detrás de todo */
-    pointer-events: none; /* No bloquea clics */
+    z-index: -1; 
+    pointer-events: none;
 }
 
 #title{
