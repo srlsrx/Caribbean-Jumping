@@ -1,3 +1,5 @@
+const coinSound = document.getElementById("collectCoin");
+coinSound.volume = 0.02;
 class Game {
     constructor() {
         this.container = document.getElementById("game-container");
@@ -28,6 +30,7 @@ class Game {
                     this.container.removeChild(moneda.element);
                     this.monedas.splice(index, 1);
                     this.puntuacion ++;
+                    coinSound.play();
                     this.actualizarPuntuacion();
                 }
             });
@@ -101,7 +104,6 @@ class Personaje {
                 this.intervaloGravedad = null;
                 this.cayendo = false;
                 this.puedeSaltarEnAire = true; // Resetea el flag al tocar el suelo
-                this.y = 400;
                 this.actualizarPosicion();
                 return;
             }

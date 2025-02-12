@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aventuras POO</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  
-    <audio id="musica" src="./public/sound/piratesSong.mp3" autoplay loop></audio>
-    <div id="controlMusica">
-      <span id="toggleMusica">🎵</span>
-      <input type="range" id="controlVolumen" min="0" max="1" step="0.01" value="0.05">
-  </div>
-    <img src="./public/img/titleSign.png" id="title">
 
-    <div id="game-container">
-      <div id="score-container">Puntuación: <span id="score">0</span></div>
-    </div>
-    <script type="module" src="main.js"></script>
-    <script type="module"src="./music.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aventuras POO</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<audio id="musica" src="./public/sound/piratesSong.mp3" autoplay loop></audio>
+<div id="controlMusica">
+  <span id="toggleMusica">🎵</span>
+  <input type="range" id="controlVolumen" min="0" max="1" step="0.01" value="0.05">
+</div>
+<img src="./public/img/titleSign.png" id="title">
+<audio id="collectCoin" src="./public/sound/collectCoin.mp3"></audio>
+<div id="game-container">
+  <div id="score-container">Puntuación: <span id="score">0</span></div>
+</div>
+<script type="module" src="main.js"></script>
+<script type="module" src="./music.js"></script>
+</body>
+
 </html>

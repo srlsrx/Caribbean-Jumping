@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Pirata+One&display=swap');
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     overflow: hidden;
-    background-color: #000000;
+    background-image: url("./public/img/pageBackground.png");
+    background-size: cover;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,14 +47,14 @@ body {
     height: 600px;
     margin: 20px auto;
     border: 10px solid #5c5c5c;
-    background-image:url("./public/img/scenery.png");
+    background-image: url("./public/img/scenery.png");
     background-size: cover;
     border-radius: 30px;
 }
 
 body::before {
     content: "";
-    position: fixed; 
+    position: fixed;
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -60,20 +63,21 @@ body::before {
     background-image: url("./public/img/parchmentBack.png");
     background-position: center;
     background-size: cover;
-    z-index: -1; 
+    z-index: -1;
     pointer-events: none;
 }
 
-#title{
-   width: 450px;;
+#title {
+    width: 450px;
+    ;
 }
 
-#score-container{
+#score-container {
     position: absolute;
     top: 10px;
     right: 10px;
-    font-size: 30px; 
-    background-color: rgba(255, 255, 255, 0.8);   
+    font-size: 30px;
+    background-color: rgba(255, 255, 255, 0.8);
     color: #000;
 }
 
@@ -83,7 +87,7 @@ body::before {
     height: 180px;
     background-image: url("./public/img/pirateCharacter.png");
     background-size: cover;
-    background-position: center; 
+    background-position: center;
     object-fit: fill;
 }
 
@@ -105,8 +109,9 @@ body::before {
 
 @keyframes bouncing {
     from {
-        transform: rotate3d(1, 1, 0, 10deg); 
+        transform: rotate3d(1, 1, 0, 10deg);
     }
+
     to {
         transform: rotate3d(1, 1, 0, 360deg);
     }
