@@ -1,13 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Pirata+One&display=swap');
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     overflow: hidden;
-    background-color: #b8b8b8;
+    background-color: #000000;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     flex-direction: column;
+    font-family: "Pirata One";
+    color: #fff;
+}
+
+#controlMusica {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+#toggleMusica {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#controlVolumen {
+    width: 100px;
+    cursor: pointer;
 }
 
 #game-container {
@@ -15,10 +43,38 @@ body {
     width: 1000px;
     height: 600px;
     margin: 20px auto;
-    border: 10px solid #6d6d6d;
+    border: 10px solid #5c5c5c;
     background-image:url("./public/img/scenery.png");
     background-size: cover;
     border-radius: 30px;
+}
+
+body::before {
+    content: "";
+    position: fixed; 
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrado */
+    width: 80%;
+    height: 85%;
+    background-image: url("./public/img/parchmentBack.png");
+    background-position: center;
+    background-size: cover;
+    z-index: -1; /* Detrás de todo */
+    pointer-events: none; /* No bloquea clics */
+}
+
+#title{
+   width: 450px;;
+}
+
+#score-container{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px; 
+    background-color: rgba(255, 255, 255, 0.8);   
+    color: #000;
 }
 
 .personaje {
