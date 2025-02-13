@@ -12,37 +12,50 @@
   <audio id="collectCoin" src="./public/sound/collectCoin.mp3"></audio>
   <audio id="loseLife" src="./public/sound/loseLife.mp3"></audio>
   <audio id="swordSound" src="./public/sound/swordSound.mp3"></audio>
-  <audio id="musica" src="./public/sound/piratesSong.mp3" autoplay loop></audio><!-- Reparar enlace para que suene la canción-->
+  <audio id="musica" src="./public/sound/piratesSong.mp3" autoplay
+    loop></audio><!-- Reparar enlace para que suene la canción-->
   <div id="controlMusica">
     <span id="toggleMusica">🎵</span>
     <input type="range" id="controlVolumen" min="0" max="1" step="0.01" value="0.05">
   </div>
-  <img src="./public/img/titleSign.png" id="title">
-  <div id="info-container">
-    <h2>🏴‍☠️ ¡Arr, grumete! ☠️</h2>
-    <p>Los doblones malditos del tesoro de Cortés han sido esparcidos por estas tierras malditas. Solo un alma valiente
-      podrá recolectarlos todos y romper la maldición. <br> Pero cuidado… ratas hambrientas acechan entre las
-      sombras, y tu vida pende de un hilo más frágil que una cuerda podrida. <br><br><span>⚔️ Recoge todos los doblones
-        que puedas. <br>
-        🥃 Encuentra botellas de ron para recuperar fuerzas. <br>
-        💀 Evita a las ratas o perderás vidas rápidamente. <br>
-      </span>
-    </p>
-    <button id="start-button" class="buttons">¡Al Abordaje!</button>
-  </div>
-  <div id="game-container" class="hide">
-    <div id="lifes-container">
-      <div class="vida"></div>
-      <div class="vida"></div>
-      <div class="vida"></div>
+  <section id="desktop">
+    <img src="./public/img/titleSign.png" id="title">
+    <div id="info-container">
+      <h2>🏴‍☠️ ¡Arr, grumete! ☠️</h2>
+      <p>Los doblones malditos del tesoro de Cortés han sido esparcidos por estas tierras malditas. Solo un alma
+        valiente
+        podrá recolectarlos todos y romper la maldición. <br> Pero cuidado… ratas hambrientas acechan entre las
+        sombras, y tu vida pende de un hilo más frágil que una cuerda podrida. <br><br><span>⚔️ Recoge todos los
+          doblones
+          que puedas. <br>
+          🥃 Encuentra botellas de ron para recuperar fuerzas. <br>
+          💀 Evita a las ratas o perderás vidas rápidamente. <br>
+        </span>
+      </p>
+      <button id="start-button" class="buttons">¡Al Abordaje!</button>
     </div>
-    <div id="score-container">Puntuación: <span id="score">0</span></div>
-  </div>
-  <div id="game-over-container">
-    <h2>¡Juego Terminado!</h2>
-    <p>Puntuación Total: <span id="final-score"></span></p>
-    <button id="retry-button" class="buttons">Volver a Intentarlo</button>
-  </div>
+    <div id="game-container" class="hide">
+      <div id="lifes-container">
+        <div class="vida"></div>
+        <div class="vida"></div>
+        <div class="vida"></div>
+      </div>
+      <div id="score-container">Puntuación: <span id="score">0</span></div>
+    </div>
+    <div id="game-over-container">
+      <h2>¡Juego Terminado!</h2>
+      <p>Puntuación Total: <span id="final-score"></span></p>
+      <button id="retry-button" class="buttons">Volver a Intentarlo</button>
+    </div>
+  </section>
+  <section id="mobile">
+    <img src="./public/img/titleSign.png" id="title">
+    <div id="rotation-message">
+      <h2>Arrr grumete!</h2>
+      <p>¡Este tesoro solo se puede encontrar en la cubierta de un verdadero barco!</p>
+      <p>¡Zarpa hacia tu escritorio para jugar a este juego!</p>
+  </section>
+
   <script type="module" src="./main.js"></script>
   <script src="./music.js"></script>
 </body>
