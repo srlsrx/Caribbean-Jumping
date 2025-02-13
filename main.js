@@ -4,6 +4,12 @@ const loseLifeSound = document.getElementById("loseLife");
 loseLifeSound.volume = 0.07;
 const swordSound = document.getElementById("swordSound");
 swordSound.volume = 0.1;
+const footstepsSound = document.getElementById("footsteps");
+footstepsSound.volume = 0.08;
+const landingSound = document.getElementById("landing");
+landingSound.volume = 0.08;
+const jumpSound = document.getElementById("jumpSound");
+jumpSound.volume = 0.08;
 class Game {
     constructor() {
         this.container = document.getElementById("game-container");
@@ -106,7 +112,7 @@ class Game {
     }
 
     generarMonedas() {
-        for (let i = 0; i < 7; i++) {
+        for (let i = 0; i < 5; i++) {
             const moneda = new Moneda();
             this.monedas.push(moneda);
             this.container.appendChild(moneda.element);
@@ -176,14 +182,22 @@ class Personaje {
                 this.x += this.velocidad;
                 this.element.classList.remove("left");
                 this.element.classList.add("walk");
+                if (!this.cayendo && !this.saltando){
+                    footstepsSound.play();
+                }
             }
         } else if (evento.key === "ArrowLeft") {
             if (this.x > 0) {
                 this.x -= this.velocidad;
                 this.element.classList.add("left");
                 this.element.classList.add("walk");
+                if (!this.cayendo && !this.saltando){
+                    footstepsSound.play();
+                }
             }
         } else if (evento.key === "ArrowUp" || evento.code === "Space") {
+            jumpSound.currentTime = 0;
+            jumpSound.play()
             this.element.style.animation = "sprite 1.5s infinite steps(6)";
             this.element.classList.add("jump");
             this.saltar();
@@ -197,6 +211,9 @@ class Personaje {
             !this.teclasPresionadas.has("ArrowLeft")
         ) { 
             this.element.classList.remove("walk");
+            footstepsSound.pause();
+            footstepsSound.currentTime = 0;
+
         } 
     }
     saltar() {
@@ -234,6 +251,7 @@ class Personaje {
                 this.intervaloGravedad = null;
                 this.cayendo = false;
                 this.puedeSaltarEnAire = true; // Resetea el flag al tocar el suelo
+                landingSound.play();
                 this.element.style.animation = "sprite 1s infinite steps(6)";
                 this.element.classList.remove("jump"); // Eliminar la clase jump al tocar el suelo
                 this.actualizarPosicion();
@@ -282,11 +300,11 @@ class Rata {
         this.element.classList.add("rata");
 
         if (side === "left") {
-            this.x = -this.width; // Comienza fuera de la pantalla por la izquierda
+            this.x = -100; // Comienza fuera de la pantalla por la izquierda
             this.dx = this.speed; // Mover hacia la derecha
             this.element.classList.add("left");
         } else {
-            this.x = 900; // Comienza fuera de la pantalla por la derecha
+            this.x = 1000; // Comienza fuera de la pantalla por la derecha
             this.dx = -this.speed; // Mover hacia la izquierda
         }
         this.y = 490; // Posición vertical
@@ -305,7 +323,7 @@ class Rata {
     }
 
     estaFueraDePantalla() {
-        return this.side === "left" ? this.x > 1000 : this.x + this.width < 0;
+        return this.side === "left" ? this.x > 1000 : this.x + this.width < -100;
     }
 }
 
