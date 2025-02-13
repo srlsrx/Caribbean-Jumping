@@ -179,7 +179,7 @@ body::before {
     width: 162.5px;
     height: 162.5px;
     scale: 120%;
-    background-image: url("./public/img/sprites/IDL\ Sprite.png");
+    background-image: url("./public/img/sprites/IDL-Sprite.png");
     background-size: cover;
     background-position: center;
     object-fit: fill;
@@ -188,7 +188,7 @@ body::before {
 }
 
 .personaje.walk {
-    background-image: url("/public/img/sprites/Walk\ Sprite.png");
+    background-image: url("./public/img/sprites/Walk-Sprite.png");
 }
 
 .personaje.left {
