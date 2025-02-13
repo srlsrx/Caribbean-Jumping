@@ -1,19 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Pirata+One&display=swap');
 
 body {
+    height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
     overflow: hidden;
-    background-image: url("./public/img/pageBackground.png");
     background-size: cover;
     background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     flex-direction: column;
     font-family: "Pirata One";
     color: #fff;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("./public/img/pageBackground.png");
+    /* Imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    filter: blur(3px);
+    /* Aplicar el desenfoque */
+    z-index: -2;
+    /* Asegura que esté detrás de todo */
+    pointer-events: none;
+    /* Para no interferir con los clics */
 }
 
 #controlMusica {
@@ -42,6 +60,7 @@ body {
 }
 
 #game-container {
+    overflow: hidden;
     position: relative;
     width: 1000px;
     height: 600px;
@@ -52,10 +71,15 @@ body {
     border-radius: 30px;
 }
 
-body::before {
+#game-container.hide {
+    display: none;
+}
+
+/*Peragmino de fondo */
+body::before { 
     content: "";
     position: fixed;
-    top: 55%;
+    top: 56%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
@@ -68,12 +92,57 @@ body::before {
 }
 
 #title {
-    width: 450px;
-    ;
+    width: 550px;
+}
+
+#info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    width: 1000px;
+    height: 600px;
+    margin: 20px auto;
+    border: 10px solid #5c5c5c;
+    background-image: url("./public/img/infoBackground.png");
+    background-size: cover;
+    border-radius: 30px;
+}
+
+#info-container.hide {
+    display:none;
+}
+
+#info-container h2 {
+    text-shadow: 0 5px 3px black;
+    text-align: center;
+    font-size:50px ;
+    position: absolute;
+    top: 0%;
+    left: 30%;
+}
+
+#info-container p {
+    color: white;
+    position: absolute;
+    text-shadow: 0 5px 3px black;
+    top: 16%;
+    font-size:25px ;
+    width: 75%;
+}
+
+#info-container span {
+    color: rgb(255, 0, 17);
+    font-size: 36px;
+    line-height: 1.5;
+    text-shadow: 0 0px 3px rgb(0, 0, 0);
 }
 
 #score-container {
     position: absolute;
+    padding: 5px 10px;
     top: 10px;
     right: 10px;
     font-size: 30px;
@@ -81,18 +150,53 @@ body::before {
     color: #000;
 }
 
+#lifes-container {
+    position: absolute;
+    top: 20px;
+    display: flex;
+    font-size: 30px;
+    color: #000;
+}
+
+#start-button {
+    
+    font-family: "Pirata One";
+    font-size: 37px;
+    width: 210px;
+    height: 150px;
+    position: absolute;
+    top: 74%;
+    background-color: transparent;
+    background-image: url("./public/img/button.png");
+    background-size: cover;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+}
+
 .personaje {
     position: absolute;
-    width: 180px;
-    height: 180px;
-    background-image: url("./public/img/pirateCharacter.png");
+    width: 162.5px;
+    height: 162.5px;
+    scale: 120%;
+    background-image: url("./public/img/sprites/IDL\ Sprite.png");
     background-size: cover;
     background-position: center;
     object-fit: fill;
+    transition: 0.1s;
+    animation: sprite 1.5s infinite steps(6);
+}
+
+.personaje.walk {
+    background-image: url("/public/img/sprites/Walk\ Sprite.png");
 }
 
 .personaje.left {
     transform: scaleX(-1)
+}
+
+.personaje.jump {
+    background-image: url("./public/img/sprites/jump-sprite.png");
 }
 
 .moneda {
@@ -104,10 +208,48 @@ body::before {
     background-position: center;
     border-radius: 50%;
     box-shadow: 0 0 10px 2px rgba(255, 255, 0, 0.9);
-    animation: bouncing 2s infinite;
+    animation: coinRotate 2s infinite;
 }
 
-@keyframes bouncing {
+.rata {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background-image: url("./public/img/rat.png");
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    transition: 0.1s;
+}
+
+.rata.left {
+    transform: scaleX(-1);
+}
+
+.vida {
+    display: block;
+    content: "";
+    background-image: url("./public/img/rumLife.png");
+    background-size: cover;
+    background-position: center;
+    width: 90px;
+    height: 90px;
+    animation: lifeShake 1.5s infinite;
+}
+
+.ron {
+    position: absolute;
+    display: block;
+    content: "";
+    background-image: url("./public/img/rumLife.png");
+    background-size: cover;
+    background-position: center;
+    width: 70px;
+    height: 70px;
+    animation: lifeShake 1.5s infinite;
+}
+
+@keyframes coinRotate {
     from {
         transform: rotate3d(1, 1, 0, 10deg);
     }
@@ -115,4 +257,61 @@ body::before {
     to {
         transform: rotate3d(1, 1, 0, 360deg);
     }
+}
+
+@keyframes lifeShake {
+    0%{rotate: -10deg;}
+    25%{rotate: 10deg;}
+    50%{rotate: -10deg;}
+    75%{rotate: 10deg;}
+    100%{rotate: -10deg;}
+}
+
+@keyframes sprite {
+    from {
+        background-position: 0px 0px;
+    }
+    to {
+        background-position: -7800px 0px; /* Mueve 6 frames de 1300px cada uno */
+    }
+    
+}
+
+#game-over-container {
+    display: none;
+    position: relative;
+    width: 1000px;
+    height: 600px;
+    background-image: url("./public/img/infoBackground.png");
+    background-size: cover;
+    background-position: center;
+    border: 10px solid #5c5c5c;
+    border-radius: 30px;
+    text-align: center;
+    color: white;
+    z-index: 10;
+}
+
+#game-over-container h2 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+#game-over-container p {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+#retry-button {
+    font-family: "Pirata One";
+    margin-top: 150px;
+    font-size: 37px;
+    width: 210px;
+    height: 150px;
+    background-color: transparent;
+    background-image: url("./public/img/button.png");
+    background-size: cover;
+    background-position: center;
+    border: none;
+    cursor: pointer;
 }
