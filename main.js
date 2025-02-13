@@ -2,6 +2,8 @@ const coinSound = document.getElementById("collectCoin");
 coinSound.volume = 0.02;
 const loseLifeSound = document.getElementById("loseLife");
 loseLifeSound.volume = 0.07;
+const swordSound = document.getElementById("swordSound");
+swordSound.volume = 0.1;
 class Game {
     constructor() {
         this.container = document.getElementById("game-container");
@@ -20,7 +22,12 @@ class Game {
         this.gameOverContainer = document.getElementById("game-over-container");
         this.finalScoreElement = document.getElementById("final-score");
         this.retryButton = document.getElementById("retry-button");
-        this.retryButton.addEventListener("click", () => this.reiniciarJuego());
+        this.retryButton.addEventListener("click", () => {
+            swordSound.play()
+            setTimeout(() => {
+                this.reiniciarJuego() 
+            }, 500);
+        });
     }
     crearEscenario() {
         this.personaje = new Personaje();
@@ -42,10 +49,10 @@ class Game {
                     this.puntuacion++;
                     this.container.removeChild(moneda.element);
                     this.monedas.splice(index, 1);
+                    coinSound.currentTime = 0
                     coinSound.play();
                     this.actualizarPuntuacion();
                 }
-
                 if (this.monedas.length === 0) {
                     this.generarMonedas();
                 }
@@ -324,6 +331,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const button = document.getElementById("start-button");
     if (button) {
         button.addEventListener("click", () => {
+            swordSound.play()
             let gameContainer = document.getElementById("game-container");
             let infoContainer = document.getElementById("info-container");
             gameContainer.classList.remove("hide");
@@ -333,7 +341,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 window.addEventListener("keyup", (e) =>
                     juego.personaje.detener(e)
                 );
-            }, "2000");
+            }, "1000");
         });
     }
 });

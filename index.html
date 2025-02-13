@@ -6,14 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aventuras POO</title>
   <link rel="stylesheet" href="./style.css" />
-  <link rel="stylesheet" href="./button-style.css">
 </head>
 
 <body>
   <audio id="collectCoin" src="./public/sound/collectCoin.mp3"></audio>
   <audio id="loseLife" src="./public/sound/loseLife.mp3"></audio>
-  <audio id="musica" src="./public/sound/piratesSong.m3" autoplay loop></audio>
-  <!-- Reparar enlace para que suene la canción-->
+  <audio id="swordSound" src="./public/sound/swordSound.mp3"></audio>
+  <audio id="musica" src="./public/sound/piratesSong.mp3" autoplay loop></audio><!-- Reparar enlace para que suene la canción-->
   <div id="controlMusica">
     <span id="toggleMusica">🎵</span>
     <input type="range" id="controlVolumen" min="0" max="1" step="0.01" value="0.05">
@@ -29,7 +28,7 @@
         💀 Evita a las ratas o perderás vidas rápidamente. <br>
       </span>
     </p>
-    <button id="start-button">¡Al Abordaje!</button>
+    <button id="start-button" class="buttons">¡Al Abordaje!</button>
   </div>
   <div id="game-container" class="hide">
     <div id="lifes-container">
@@ -42,12 +41,10 @@
   <div id="game-over-container">
     <h2>¡Juego Terminado!</h2>
     <p>Puntuación Total: <span id="final-score"></span></p>
-    <button id="retry-button">Volver a Intentarlo</button>
+    <button id="retry-button" class="buttons">Volver a Intentarlo</button>
   </div>
   <script type="module" src="./main.js"></script>
   <script src="./music.js"></script>
-  <script src="./music.js"></script>
-  <script src="./gooey.js"></script>
 </body>
 
 </html>
