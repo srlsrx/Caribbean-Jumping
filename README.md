@@ -29,7 +29,7 @@ Un juego de plataformas en el que controlas a un pirata que debe recolectar mone
 
 1. Clona este repositorio:
 ```bash
-git clone https://github.com/srlsrx/POO-Game.git 
+git clone https://github.com/srlsrx/Caribbean-Jumping.git 
 ```
 2. Abre el archivo index.html en tu navegador.
 3. ¡Disfruta del juego!
