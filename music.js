@@ -1,7 +1,6 @@
 const musica = document.getElementById("musica");
 const toggleMusica = document.getElementById("toggleMusica");
 const controlVolumen = document.getElementById("controlVolumen");
-
 // Iniciar con volumen al 50%
 musica.volume = 0.03;
 
