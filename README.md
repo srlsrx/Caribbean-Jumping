@@ -1,4 +1,4 @@
-# 🏴‍☠️ Caribbean Jumping
+![logo](./public/img/titleSign.png)
 
 Un juego de plataformas en el que controlas a un pirata que debe recolectar monedas mientras evita ratas y recupera ron para mantener su energía.
 
