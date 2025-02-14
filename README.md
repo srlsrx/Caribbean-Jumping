@@ -6,11 +6,9 @@ Un juego de plataformas en el que controlas a un pirata que debe recolectar mone
 
 - Movimiento fluido del personaje
 - Sistema de puntuación
-- Colección de monedas
 - Enemigos (ratas)
 - Sistema de vidas con botellas de ron
 - Música y efectos de sonido temáticos
-- Diseño responsivo para diferentes dispositivos
 
 ## 🛠️ Tecnologías Utilizadas
 
